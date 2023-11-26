@@ -47,6 +47,9 @@ extern "C" {
 		SU_PORT_T port
 	);
 
+	// Reserved function
+	// UINT32 JavaNotifyAlarm(WCHAR *title)
+
 	JAVA_APP_ID JavaGetMidletSuite(JAVA_APP_ID java_id);
 
 	JAVA_APP_ID JavaGetMIDletID(

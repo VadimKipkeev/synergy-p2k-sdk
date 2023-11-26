@@ -42,6 +42,9 @@ extern "C" {
 	HAPI_BATTERY_ROM_T HAPI_BATTERY_ROM_read(UINT8 *dest_address);
 
 	void HAPI_BATTERY_ROM_get_unique_id(UINT8 *unique_id);
+
+	extern const UINT32 *SBCM_ATOD_vltg;
+	extern const UINT32 *SBCM_ATOD_supply;
 	
 	/* --------------------------------------------------------------------------------------------------------------------------------
 	 *                      ---- Light control ----
@@ -143,6 +146,12 @@ extern "C" {
 
 	// Writing
 	UINT8 DL_DbFeatureStoreState(UINT16 fstate_ID, UINT8 state);
+
+	UINT8 DL_DbFeatureStoreBlock(
+		UINT16 fstate_ID,
+		UINT8  *data,
+		UINT8  data_length
+	);
 
 	UINT8 DL_DbFeatureGetValue(UINT16 feature_id, UINT32 *feature_value);
 
@@ -379,6 +388,9 @@ extern "C" {
 	} SIGNAL_STRENGTH_T;
 
 	void DL_SigRegQuerySignalStrength(SIGNAL_STRENGTH_T *signal_strength);
+
+	// CSD/GPRS/EDGE (return, that is internet connection on current cell)
+	void DL_SigRegQueryGprsEgprsState(UINT8 *gprs_state);
 
 	// Cell Id
 	void DL_SigRegGetCellID(UINT16 *cell_id);

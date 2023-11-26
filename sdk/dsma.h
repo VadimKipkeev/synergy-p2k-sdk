@@ -27,6 +27,12 @@
 
 typedef UINT32 CMD_NUM;
 
+typedef struct {
+
+} SOCKET_BUFFER_T;
+
+typedef struct _SOCKET_T SOCKET_T; // Struct incapsulation
+
 // Proxy state
 enum {
 
@@ -196,6 +202,17 @@ extern "C" {
 		BYTE   *buf,
 		UINT32 size
 	);
+
+	BOOL dl_wvim_alloc_socket_buff(
+		SOCKET_BUFFER_T *buff,
+		size_t          size,
+		BOOL            param2 // param2 = FALSE
+	);
+
+	void dl_wvim_socket_close(SOCKET_T *socket);
+
+	// Function allocate memory for socket buffer, return how many bytes is read
+	size_t dl_wvim_socket_read(SOCKET_T *socket);
 
 #ifdef __cplusplus
 }

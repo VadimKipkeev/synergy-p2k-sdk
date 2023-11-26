@@ -352,6 +352,8 @@ extern "C" {
 
 	UINT16 DL_FsSearchClose(FS_SEARCH_HANDLE_T handle);
 
+	UINT32 URINameValid(WCHAR *uri);
+
 #ifdef __cplusplus
 }
 #endif

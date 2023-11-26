@@ -154,6 +154,16 @@ extern "C" {
 		UINT8    stack_priority     // AFW_APP_RSTACK_POS_T
 	);
 
+	APPLICATION_T *APP_InitData(
+		void     *main_event_handler,
+		UINT32   sizeof_app,
+		REG_ID_T reg_id,
+		UINT32   sizeof_hist,  // == 0
+		UINT16   history_size,
+		UINT32   priority,
+		UINT16   priority2
+	);
+
 	// Standart events control function for non background applications
 	void APP_HandleEvent(
 		EVENT_STACK_T *ev_st,
@@ -275,6 +285,12 @@ extern "C" {
 
 	// Disable display nosleep mode function
 	UINT32 APP_MMC_UtilRestartVariousTimers(void);
+
+	UINT32 AlertStatusStart(
+		EVENT_STACK_T *ev_st,
+		REG_ID_T      reg_id,
+		void          *reg_hdl
+	);
 
 #ifdef __cplusplus
 }

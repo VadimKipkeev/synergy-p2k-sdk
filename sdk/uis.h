@@ -493,6 +493,15 @@ extern "C" {
 		ACTIONS_T *actions
 	);
 
+	// Creates a content output dialog where the header and content part are specified separately
+	UIS_DIALOG_T UIS_CreateViewerWithTitle(
+		SU_PORT_T   *port,
+		CONTENT_T   *title,
+		CONTENT_T   *body,
+		ACTIONS_T   *actions,
+		RESOURCE_ID dlgres
+	);
+
 	// Create list with pictures and text
 	UIS_DIALOG_T UIS_CreatePictureAndTextList(
 		SU_PORT_T   *port,
@@ -520,6 +529,16 @@ extern "C" {
 		UINT32      unk     // unk = 0xD3, 0x7D0
 	);
 
+	// Create screensaver from picture, supports: GIF, JPG, PNG, BMP, and others
+	UIS_DIALOG_T UIS_CreateScreenSaver(SU_PORT_T *post, WCHAR *uri);
+
+	UIS_DIALOG_T UIS_CreateMixedContentViewer(
+		SU_PORT_T   *port,
+		CONTENT_T   *content,
+		ACTIONS_T   *action_list,
+		RESOURCE_ID dlgres
+	);
+
 	// Create progressbar
 	UIS_DIALOG_T UIS_CreateProgressBar(
 		SU_PORT_T   *port,
@@ -532,6 +551,14 @@ extern "C" {
 		ACTIONS_T   *actions,
 		RESOURCE_ID dlgres
 	);
+
+	#if defined(EP1)
+
+		// Events for this dialog
+		#define EV_PB_SET_PERCENT   0x213F
+		#define EV_PB_SET_VALUE_STR 0x2140
+		#define EV_PB_SET_STR       0x2141
+	#endif
 	
 	/* --------------------------------------------------------------------------------------------------------------------------------
 	 *                      ---- Skins API ----
@@ -579,6 +606,8 @@ extern "C" {
 
 	// Set information to desktop
 	UINT32 UIS_SetStatus(UINT8 status_id, STATUS_VALUE_T value);
+
+	UINT32 UIS_SetStatusOff(UINT8 id, STATUS_VALUE_T status);
 
 	// Get information from desktop
 	UINT32 UIS_GetCurrentStatusValue(UINT8 status_id, STATUS_VALUE_T *value);
