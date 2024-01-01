@@ -120,7 +120,7 @@ extern const char app_name[];
  */
 
 #ifdef DEBUG_TIME
-	#define dtime_init()            \
+	#define dtime_init() \
 		unsigned int dbg_timer_var; \
 		dbg_timer_init(app_name, __FILE__, __LINE__, &dbg_timer_var)
 

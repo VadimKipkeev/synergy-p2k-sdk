@@ -310,24 +310,21 @@ extern "C" {
 
 	void suLogData(UINT32 *phandle, UINT32 msgid, UINT32 num_pairs, ...);
 
-	#define LOG(format, ...)                                                        \
-		do                                                                          \
-		{                                                                           \
+	#define LOG(format, ...) \
+		do { \
 			UtilLogStringData("%s:%d: " format, __func__, __LINE__, ##__VA_ARGS__); \
-			PFprintf("%s:%d: " format, __func__, __LINE__, ##__VA_ARGS__);          \
-		} while (0);
+			PFprintf("%s:%d: " format, __func__, __LINE__, ##__VA_ARGS__); \
+		} while(0);
 
 	#if !defined(DEBUG)
 		#define D(format, ...)
 		#define P()
 	#else
-		#define D(format, ...)                                                      \
-
-		do                                                                          \
-		{                                                                           \
-			UtilLogStringData("%s:%d: " format, __func__, __LINE__, ##__VA_ARGS__); \
-			PFprintf("%s:%d: " format, __func__, __LINE__, ##__VA_ARGS__);          \
-		} while (0);
+		#define D(format, ...) \
+			do { \
+				UtilLogStringData("%s:%d: " format, __func__, __LINE__, ##__VA_ARGS__); \
+				PFprintf("%s:%d: " format, __func__, __LINE__, ##__VA_ARGS__); \
+			} while(0);
 
 		#define P() D("%s\n", "Debug Line!")
 	#endif

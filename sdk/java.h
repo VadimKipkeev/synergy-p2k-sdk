@@ -35,8 +35,8 @@ extern "C" {
 	 * file number << 8 | 0x20001
 	 */
 	#define DL_FS_MID_T_to_JAVA_APP_ID(fs_mid, java_app) \
-	{                                                    \
-		java_app = fs_mid << 8 | 0x20001                 \
+	{ \
+		java_app = fs_mid << 8 | 0x20001 \
 	}
 
 	UINT32 JavaStartApp(

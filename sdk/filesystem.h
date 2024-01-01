@@ -37,10 +37,10 @@ typedef FS_HANDLE_T FILE_HANDLE_T;
 
 typedef UINT64 FS_MID_T;        // Phisical ID of file
 
-typedef UINT32 FS_COUNT_T;      //Count for writing, reading, inserting, and removing file data
-typedef UINT8 FS_PERCENT_T;     //Percent complete of an operation (0 - 100)
-typedef UINT16 FS_SEARCH_NUM_T; //Number of files matching search criteria
-typedef INT32 FS_SEEK_OFFSET_T; //Seek offset value
+typedef UINT32 FS_COUNT_T;      // Count for writing, reading, inserting, and removing file data
+typedef UINT8 FS_PERCENT_T;     // Percent complete of an operation (0 - 100)
+typedef UINT16 FS_SEARCH_NUM_T; // Number of files matching search criteria
+typedef INT32 FS_SEEK_OFFSET_T; // Seek offset value
 typedef UINT32 FS_SIZE_T;
 typedef UINT8 FS_RESULT_T;      // 0 - OK, 1 - FAIL
 
